@@ -6,19 +6,41 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.attendanceapp",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Butuh lokasi untuk memilih posisi"
+      }
     },
     "android": {
+      "permissions": ["ACCESS_FINE_LOCATION"],
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+      },
+      "package": "com.attendanceapp",
+      "googleServicesFile": "./pages/P9_2_Notification/google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "@react-native-firebase/app",
+        {
+          "android": {
+            "googleServicesFile": "./pages/P9_2_Notification/google-services.json"
+          }
+        }
+      ],
+      "@react-native-firebase/messaging"
+    ]
   }
 }
